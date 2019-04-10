@@ -28,4 +28,17 @@ class Application
       return "Couldn't find #{search_term}"
     end
   end
+ 
+ if req.path.match(/cart/)
+      @@cart.each do |c|
+        resp.write "#{c}\n"
+      end
+  
+    else
+      resp.write "Path Not Found"
+    end
+
+    resp.finish
+  end 
+  
 end
